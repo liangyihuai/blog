@@ -1,0 +1,130 @@
+---
+layout: post
+title: Sleeping Beauty
+date: 2016-12-20 16:18
+comments: true
+external-url:
+categories: Mathematics
+---
+
+# Scala
+
+
+
+- public是Scala的默认访问级别
+
+- Scala里方法参数都是val，不是var。
+
+- 定义方法的时候加上等号是一个严谨的作风。不加等号放回Unit结果类型，可能会把实际所返回的结果掩盖。
+
+- 把操作符放在行尾而不是行头。
+
+- 除了String归于java.lang包之外，其余所有的基本类型都是包scala的成员。如scala.Int\scala.Char，位于scala包下面的所有类都被自动导入。
+
+- scala基本数据类型的长度和java是一样的。
+
+- 主构造器定义先决条件：require(arg);参数为布尔类型，用于保障构造对象之前数据的正确性。
+
+- 流间（mid-stream）变量绑定：for控制语句小括号中变量不用申明。
+
+- 制造新集合：for（子句）yield{循环体}
+
+- 捕获catch异常的书写方式和java不一样。
+```scala
+  //结果分别是2、1
+  def f(): Int = try{return 1}finally{return 2}
+  println(f());
+  def g(): Int = try{1}finally{2}
+  println(g());
+```
+
+- match类似于java的switch，case中默认不是*而是下划线_。break关键字是默认存在的。match表达式也能产生值（返回值）。
+
+- 没有break和continue。
+
+- 占位符：下划线。代表参数。
+
+- 偏函数
+
+- 尾递归：最后一个动作调用自己的函数。
+
+- 函数可以作为其他函数的参数。参数书写形式为：函数A的引用名字：（A的参数）
+
+```
+  //该函数的参数是一个方法字面量，这个“参数方法”有一个Book类型的参数，返回值的类型是AnyRef。
+  def printBookList(info: Book => AnyRef): Unit ={
+      for(book <- books){
+        println(info(book));
+      }
+```
+
+- ++操作符连接两个数组。
+
+- Unit 但与java的void，表示空。
+
+- 基本数据类型Int、Char、Boolean等是abstract和final修饰的。
+
+- Any是所有类的父类AnyRef类是Any类的直接子类，是所有引用类的基类，所以AnyRef类似于java的Object类。scala.AnyVal是Any的直接子类，是所有基本类型的父类。
+
+- scala字符串字面值比较实用等号，而判断两个字符串是不是同一个“引用”使用eq方法或者ne方法。这个点和java是不一样的，因为Java使用equals比较两个字符串的字面量值。
+
+- scala中的Null类是java中null引用对象的类型，它是每个引用类，也即是说每个继承自AnyRef的类，的子类。所以不能把null值赋值给整数变量。
+
+- scala中Nothing是所有类型的子类，处于scala的类层级的最底端。
+
+  - trait 就像是带有具体方法的java接口。不使用impliments关键字，而是extends和with关键字。
+
+- 特质堆叠:子特质的抽象方法里面可以调用super特质中的抽象方法。进行相应的操作。
+
+- 当new实例化一个类的时候，scala把这个类和所有它继承的类还有他的特质以线性的次序放在一起。（堆叠行为）
+
+- 引用某包下面的所有类使用下划线而不是java的星号。scala的引用import可以出现在任何地方。
+
+- scala的private和Java的private有一点不一样。前者严格一点。
+
+- scala中，protected只在定义了成员的类的子类中可以被访问。而java中还允许在同一个包的其他类中进行这种访问。
+
+- scala可以直接指定自己对其他某一个包的可见性，即使他是被private修饰的。
+
+- private[this]标记的定义能在包含了定义的同一个对象中被访问。它比private更加严格。
+
+```
+  比如：如果Navigator类中的speed方法被private[this]修饰，那么new Navigator().speed是不能编译通过的。
+```
+
+- 单例对象没有任何子类。
+
+- 判断空列表：xs.isEmpty
+
+- 集合对象通过elements方法名产生iteractor枚举器。
+
+- 列表List相当于java中的链表，并且是不可变 的。
+
+- ListBuffer是可改变的链表，相当于java的LinkedList； ArrayBuffer相当于java的ArrayList
+
+- 集合的创建方式：val words = scala.collection.mutable.Set.empty\[String\]; 或者val words = scala.collection.mutable.Set\[String\]();
+
+- 定义变量var c: Float = _; 在scala中不可以随便省略“=\_” 初始化器。如果省略，这将定义为抽象变量，而不是未初始化的变量。
+
+
+
+
+
+
+
+
+[scala-doc-collection](http://www.scala-lang.org/docu/files/collections-api/collections_49.html)
+
+
+
+http://twitter.github.io/effectivescala/index-cn.html
+
+http://twitter.github.io/scala_school/
+
+
+
+http://www.artima.com/scalazine/articles/origins_of_scala.html
+
+
+
+[Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
