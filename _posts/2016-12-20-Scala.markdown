@@ -7,7 +7,6 @@ external-url:
 categories: Scala
 ---
 
-# Scala
 
 
 - public是Scala的默认访问级别
