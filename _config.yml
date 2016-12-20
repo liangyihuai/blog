@@ -8,12 +8,12 @@ biography: "I am a student of Computer Science and Technology, Bachelor of Engin
 colophon: "© MMXIII — MMXVI by Hugo Sereno Ferreira.<br>Content available under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons (BY-NC-SA)</a> unless otherwise noted.<br>This site is hosted at <a href='https://pages.github.com/'>Github Pages</a> and created with <a href='http://jekyllrb.com/'>Jekyll</a>."
 
 baseurl: ""
-url: "http://hugoserenoe.eu"
+url: "http://liangyihuai.github.io/blog"
 
-twitter_username: ferr
-github_username: hugof
-linkedin_username: hugoserenof
-facebook_username: exam
+twitter_username: liangyihuai
+github_username: liangyihuai
+linkedin_username: liangyihuai
+facebook_username: liangyihuai
 google-analytics: UA-690
 
 simple_search: http://google.com/search
