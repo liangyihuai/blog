@@ -109,7 +109,12 @@ categories: Scala
 
 
 [scala-doc-collection](http://www.scala-lang.org/docu/files/collections-api/collections_49.html)
+
 [effectivescala](http://twitter.github.io/effectivescala/index-cn.html)
+
 [scala-school](http://twitter.github.io/scala_school/)
+
 [origins-of-scala](http://www.artima.com/scalazine/articles/origins_of_scala.html)
+
 [Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
+
