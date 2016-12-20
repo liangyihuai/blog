@@ -1,14 +1,13 @@
 ---
 layout: post
-title: Sleeping Beauty
+title: scala
 date: 2016-12-20 16:18
 comments: true
 external-url:
-categories: Mathematics
+categories: Scala
 ---
 
 # Scala
-
 
 
 - public是Scala的默认访问级别
@@ -30,7 +29,8 @@ categories: Mathematics
 - 制造新集合：for（子句）yield{循环体}
 
 - 捕获catch异常的书写方式和java不一样。
-```scala
+
+```
   //结果分别是2、1
   def f(): Int = try{return 1}finally{return 2}
   println(f());
@@ -72,7 +72,7 @@ categories: Mathematics
 
 - scala中Nothing是所有类型的子类，处于scala的类层级的最底端。
 
-  - trait 就像是带有具体方法的java接口。不使用impliments关键字，而是extends和with关键字。
+- trait 就像是带有具体方法的java接口。不使用impliments关键字，而是extends和with关键字。
 
 - 特质堆叠:子特质的抽象方法里面可以调用super特质中的抽象方法。进行相应的操作。
 
@@ -108,23 +108,8 @@ categories: Mathematics
 
 
 
-
-
-
-
-
 [scala-doc-collection](http://www.scala-lang.org/docu/files/collections-api/collections_49.html)
-
-
-
-http://twitter.github.io/effectivescala/index-cn.html
-
-http://twitter.github.io/scala_school/
-
-
-
-http://www.artima.com/scalazine/articles/origins_of_scala.html
-
-
-
+[effectivescala](http://twitter.github.io/effectivescala/index-cn.html)
+[scala-school](http://twitter.github.io/scala_school/)
+[origins-of-scala](http://www.artima.com/scalazine/articles/origins_of_scala.html)
 [Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
