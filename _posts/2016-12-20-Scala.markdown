@@ -1,6 +1,6 @@
 ---
 layout: post
-title: scala
+title: Scala Programming
 date: 2016-12-20 16:18
 comments: true
 external-url:
