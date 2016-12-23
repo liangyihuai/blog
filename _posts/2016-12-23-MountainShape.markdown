@@ -116,44 +116,6 @@ public class MountainShapeTest {
         return highList.size()-remainNum;
     }
 
-    public int extract2(List<Integer> highList){
-        if(highList == null || highList.size() == 0)return 0;
-        List<Integer> remainList = removeNeighbourSame(highList);
-        setLowestPoints(remainList);
-
-        int remainNum = 1;
-        //只有一个凹点，最多只有两个点（第一个点和最后一个点），最少只有一个点。
-        if(lowestPoints.size() <= 2){
-            return highList.size() - remainList.size();
-        }else{
-            int start = 0;
-            int end = lowestPoints.size()-1;
-            while(start < end){
-                remainNum = Math.max(remainNum, getHigherNum(lowestPoints.get(start), lowestPoints.get(end), remainList));
-                if(start+1 <= end-1){
-                    int num1 = getHigherNum(lowestPoints.get(start), lowestPoints.get(start+1), remainList);
-                    int num2 = getHigherNum(lowestPoints.get(end-1), lowestPoints.get(end), remainList);
-
-                    remainNum = Math.max(remainNum, num1);
-                    remainNum = Math.max(remainNum, num2);
-
-                    //如果所遍历到的两个点重合了，说明可以结束了。
-                    if(start+1 == end-1)break;
-                    //去掉最左边或者最右边中最矮的山。
-                    if(num1 > num2){
-                        end--;
-                    }else if(num1 == num2){
-                        if(start < end) end--;
-                        else start++;
-                    }else{
-                        start++;
-                    }
-                }
-            }
-        }
-        return highList.size() - remainNum;
-    }
-
     //去掉重复，相邻并且值相同的两个元素
     private List<Integer> removeNeighbourSame(List<Integer> highList){
         List<Integer> result = new ArrayList<>();
