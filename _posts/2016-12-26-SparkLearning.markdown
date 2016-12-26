@@ -1,11 +1,10 @@
-
 ---
 layout: post
 title: Spark Learning
 date: 2016-12-26 15:48
 comments: true
 external-url: blog.csdn.net/liangyihuai
-categories: Spark
+categories: Big Data
 ---
 
 
