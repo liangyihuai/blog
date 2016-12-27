@@ -64,7 +64,9 @@ scala> partitioned.partitioner
 res1: Option[spark.Partitioner] = Some(spark.HashPartitioner@5147788d)
 ```
 
-hello hello
+
+
 
 
 [mllib-statistics](https://spark.apache.org/docs/2.0.2/mllib-statistics.html)
+[google-math](http://www.changhai.org/articles/technology/misc/google_math.php)
