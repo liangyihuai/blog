@@ -36,50 +36,29 @@ val result = input.aggregate((0, 0))(
 val avg = result._1 / result._2.toDouble
 ```
 
-Table 4-1. Transformations on one pair RDD (example: {(1, 2), (3, 4), (3, 6)})
+- cogroup??
 
----
- Function name :	 Purpose 	: Example 	: Result 
- 
- reduceByKey(func)
- 
-: Combine values with the same key. 
- 
- : rdd.reduceByKey( (x, y) => x + y)
- 
- : {(1, 2), (3, 10)}
- 
- groupByKey()
- 
-: Group values with the same key. 
- 
- rdd.groupByKey()
- 
- : {(1, [2]), (3, [4, 6])}
- combineByKey(createCombiner, mergeValue, mergeCombiners, partitioner): Combine values with the same key using a different result type.: See Examples  4-12 through 4-14.
- 
- mapValues(func): Apply a function to each value of a pair RDD without changing the key. : rdd.mapValues(x => x+1): {(1, 3), (3, 5), (3, 7)}
- 
- flatMapValues(func)
- 
-: Apply a function that returns an iterator to each value of a pair RDD, and for each element returned, produce a key/value entry with the old key. Often used for tokenization. 
- 
- : rdd.flatMapValues(x => (x to 5)
- 
- : {(1, 2), (1, 3), (1, 4), (1, 5), (3, 4), (3, 5)}
- 
- keys()
- 
-: Return an RDD of just the keys. 
- 
- : rdd.keys()
- 
- : {1, 3, 3}
- 
- values(): Return an RDD of just the values. : rdd.values(): {2, 4, 6}
- 
- sortByKey(): Return an RDD sorted by the key.: rdd.sortByKey(): {(1, 2), (3, 4), (3, 6)}
----
+- partitionBy
+val sc = new SparkContext(...)
+val userData = sc.sequenceFile[UserID, UserInfo]("hdfs://...")
+                 .partitionBy(new HashPartitioner(100))   // Create 100 partitions
+                 .persist()
+
+> Note that partitionBy() is a transformation, so it always returns a new RDD — it does not change the original RDD in place. RDDs can never be modified once created. Therefore it is important to persist and save as userData the result of partitionBy(), not the original sequenceFile(). Also, the 100 passed to partitionBy() represents the number of partitions, which will control how many parallel tasks perform further operations on the RDD (e.g., joins); in general, make this at least as large as the number of cores in your cluster.without persist(), subsequent RDD actions will evaluate the entire lineage of partitioned, which will cause pairs to be hash-partitioned over and over.
+
+```
+scala> val pairs = sc.parallelize(List((1, 1), (2, 2), (3, 3)))
+pairs: spark.RDD[(Int, Int)] = ParallelCollectionRDD[0] at parallelize at <console>:12
+
+scala> pairs.partitioner
+res0: Option[spark.Partitioner] = None
+
+scala> val partitioned = pairs.partitionBy(new spark.HashPartitioner(2))
+partitioned: spark.RDD[(Int, Int)] = ShuffledRDD[1] at partitionBy at <console>:14
+
+scala> partitioned.partitioner
+res1: Option[spark.Partitioner] = Some(spark.HashPartitioner@5147788d)
+```
 
 
 [mllib-statistics](https://spark.apache.org/docs/2.0.2/mllib-statistics.html)
