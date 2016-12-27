@@ -39,10 +39,14 @@ val avg = result._1 / result._2.toDouble
 - cogroup??
 
 - partitionBy
+
+```
 val sc = new SparkContext(...)
 val userData = sc.sequenceFile[UserID, UserInfo]("hdfs://...")
                  .partitionBy(new HashPartitioner(100))   // Create 100 partitions
                  .persist()
+
+```
 
 > Note that partitionBy() is a transformation, so it always returns a new RDD — it does not change the original RDD in place. RDDs can never be modified once created. Therefore it is important to persist and save as userData the result of partitionBy(), not the original sequenceFile(). Also, the 100 passed to partitionBy() represents the number of partitions, which will control how many parallel tasks perform further operations on the RDD (e.g., joins); in general, make this at least as large as the number of cores in your cluster.without persist(), subsequent RDD actions will evaluate the entire lineage of partitioned, which will cause pairs to be hash-partitioned over and over.
 
@@ -59,6 +63,8 @@ partitioned: spark.RDD[(Int, Int)] = ShuffledRDD[1] at partitionBy at <console>:
 scala> partitioned.partitioner
 res1: Option[spark.Partitioner] = Some(spark.HashPartitioner@5147788d)
 ```
+
+hello hello
 
 
 [mllib-statistics](https://spark.apache.org/docs/2.0.2/mllib-statistics.html)
