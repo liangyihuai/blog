@@ -26,10 +26,13 @@ As we’ve discussed, RDDs support two types of operations: transformations and 
 It is important to note that each time we call a new action, the entire RDD must be computed “from scratch.” To avoid this inefficiency, users can persist intermediate results, as we will cover in “Persistence (Caching)”.
 
 - aggregate
+
 the following code is for get average.
+```java
 val result = input.aggregate((0, 0))(
               /*an operator used to accumulate results within a partition, this operator is similar with fold()*/
                (acc, value) => (acc._1 + value, acc._2 + 1),
                /*an associative operator used to combine results from different partitions*/
                (acc1, acc2) => (acc1._1 + acc2._1, acc1._2 + acc2._2))
 val avg = result._1 / result._2.toDouble
+```
