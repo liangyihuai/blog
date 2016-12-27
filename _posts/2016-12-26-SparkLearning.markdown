@@ -37,6 +37,7 @@ val avg = result._1 / result._2.toDouble
 ```
 
 Table 4-1. Transformations on one pair RDD (example: {(1, 2), (3, 4), (3, 6)})
+
 ---
  Function name :	 Purpose 	: Example 	: Result 
  
@@ -55,21 +56,9 @@ Table 4-1. Transformations on one pair RDD (example: {(1, 2), (3, 4), (3, 6)})
  rdd.groupByKey()
  
  : {(1, [2]), (3, [4, 6])}
+ combineByKey(createCombiner, mergeValue, mergeCombiners, partitioner): Combine values with the same key using a different result type.: See Examples  4-12 through 4-14.
  
- : combineByKey(createCombiner, mergeValue, mergeCombiners, partitioner)
- 
-: Combine values with the same key using a different result type. 
- 
-: See Examples  4-12 through 4-14.
-  
- 
- mapValues(func)
- 
-: Apply a function to each value of a pair RDD without changing the key. 
- 
- : rdd.mapValues(x => x+1)
- 
- : {(1, 3), (3, 5), (3, 7)}
+ mapValues(func): Apply a function to each value of a pair RDD without changing the key. : rdd.mapValues(x => x+1): {(1, 3), (3, 5), (3, 7)}
  
  flatMapValues(func)
  
@@ -90,7 +79,7 @@ Table 4-1. Transformations on one pair RDD (example: {(1, 2), (3, 4), (3, 6)})
  values(): Return an RDD of just the values. : rdd.values(): {2, 4, 6}
  
  sortByKey(): Return an RDD sorted by the key.: rdd.sortByKey(): {(1, 2), (3, 4), (3, 6)}
-
 ---
+
 
 [mllib-statistics](https://spark.apache.org/docs/2.0.2/mllib-statistics.html)
