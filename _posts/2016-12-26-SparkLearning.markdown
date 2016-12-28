@@ -64,9 +64,42 @@ scala> partitioned.partitioner
 res1: Option[spark.Partitioner] = Some(spark.HashPartitioner@5147788d)
 ```
 
+- shared variables: 		aggregation and broadcasts
+
+Spark’s shared variables, accumulators and broadcast variables, relax this restriction for two common types of communication patterns: aggregation of results and broadcasts.
+
+
+- mapPartitions and map
+
+>Q1. What's the difference between an RDD's map and mapPartitions
+map works the function being utilized at a per element level while mapPartitions exercises the function at the partition level.
+
+
+>Tip
+Spark’s documentation consistently uses the terms driver and executor when describing the processes that execute each Spark application. The terms master and worker are used to describe the centralized and distributed portions of the cluster manager. It’s easy to confuse these terms, so pay close attention. For instance, Hadoop YARN runs a master daemon (called the Resource Manager) and several worker daemons called Node Managers. Spark can run both drivers and executors on the YARN worker nodes.
+
+- spark configuration precedence order
+The highest priority is given to configurations declared explicitly in the user’s code using the set() function on a SparkConf object. Next are flags passed to spark-submit, then values in the properties file, and finally default values.
+
+- coalesce() operator
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 [mllib-statistics](https://spark.apache.org/docs/2.0.2/mllib-statistics.html)
 [google-math](http://www.changhai.org/articles/technology/misc/google_math.php)
+[programming-guide](http://spark.apache.org/docs/latest/programming-guide.html)
+[tuning-spark](http://spark.apache.org/docs/latest/tuning.html)

@@ -7,8 +7,16 @@ external-url:
 categories: architecture
 ---
 
+# Database
+
+- Hbase
+
 - Elasticsearch
 
 
 - Cassandra
 
+- Apache Mesos and Hadoop YARN
+open source cluster managers.
+
+- Amazon EC2
