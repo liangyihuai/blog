@@ -8,6 +8,21 @@ categories: BigData
 ---
 
 
+- Spark 
+	- Spark SQL
+	- Spark Streaming
+	- MLib(mechine learing)
+	- GraphX(graph)
+
+- cassandra
+
+- HBase
+
+- Mesos
+
+- Hadoop
+
+
 - submit the spark job.
 
 ```

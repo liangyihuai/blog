@@ -16,19 +16,33 @@ categories: architecture
 
 - Cassandra
 
+
 - Apache Mesos and Hadoop YARN
+
 open source cluster managers.
+
 
 - Amazon EC2
 
+
 - simba
+
+
+- Postgres
+
+
 [simba](http://www.cs.utah.edu/~dongx/simba/)
 
 - alluxio
+
 [alluxio](http://www.alluxio.org/)
 
 - airflow
+
 [airflow](http://airflow.incubator.apache.org/)
 
 - oozie
+
 [oozie](http://oozie.apache.org/)
+
+172.23.19.110/
