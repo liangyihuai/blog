@@ -9,18 +9,16 @@ categories: BigData
 
 
 - Apache Spark Components
-
 1. Spark Core Component
 
 ```
-	 special data structure RDD
-	 basic I/O functionalities
-	 jobs and task scheduling and monitoring
-	 memory management
-	 fault recovery
-	 interacting with storage systems
-	 so on
-
+ - special data structure RDD
+ - basic I/O functionalities
+ - jobs and task scheduling and monitoring
+ - memory management
+ - fault recovery
+ - interacting with storage systems
+ - so on
 ```
 2. Spark SQL component
 
@@ -31,12 +29,11 @@ categories: BigData
 5. MLlib
 
 ```
- clustering
- classification
- decomposition
- regression
- collaborative filtering
-
+ - clustering
+ - classification
+ - decomposition
+ - regression
+ - collaborative filtering
 ```
 
 - Zookeeper
