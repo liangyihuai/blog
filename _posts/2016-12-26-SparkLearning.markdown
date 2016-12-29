@@ -100,6 +100,9 @@ The highest priority is given to configurations declared explicitly in the userâ
 
 
 [mllib-statistics](https://spark.apache.org/docs/2.0.2/mllib-statistics.html)
+
 [google-math](http://www.changhai.org/articles/technology/misc/google_math.php)
+
 [programming-guide](http://spark.apache.org/docs/latest/programming-guide.html)
+
 [tuning-spark](http://spark.apache.org/docs/latest/tuning.html)

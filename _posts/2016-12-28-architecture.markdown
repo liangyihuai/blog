@@ -20,3 +20,15 @@ categories: architecture
 open source cluster managers.
 
 - Amazon EC2
+
+- simba
+[simba](http://www.cs.utah.edu/~dongx/simba/)
+
+- alluxio
+[alluxio](http://www.alluxio.org/)
+
+- airflow
+[airflow](http://airflow.incubator.apache.org/)
+
+- oozie
+[oozie](http://oozie.apache.org/)
