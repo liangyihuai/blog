@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A funney application requirement.
+title: A-funny-application-requirement.
 date: 2017-03-13 18:48
 comments: true
 external-url:
