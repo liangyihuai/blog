@@ -1,6 +1,6 @@
 ---
 layout: post
-title: architecture
+title: A funney application requirement.
 date: 2017-03-13 18:48
 comments: true
 external-url:
@@ -194,3 +194,9 @@ public class Test {
     }
 }
 ```
+
+
+>该需求的由来：本人在追两部小说，《大主宰》和《斗罗大陆3-龙王传说》，
+每过几个小时就去打开网页，点击bookmark，看看有没有更新。
+现在的需求是：我不需要用浏览器查看有没有更新，只要这两部小说更新了，这个应用就自动推送到我的手机上并提醒我。
+本人已经实现并发表到blog上面了。
