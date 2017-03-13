@@ -15,7 +15,7 @@ categories: Java
 
 具体：具体思路和步骤如下：
 
-1. 根据给定的一个URL下载所对应的页面的HTML数据，可以使用下面的代码：
+<1> 根据给定的一个URL下载所对应的页面的HTML数据，可以使用下面的代码：
 这里使用的url为：http://longwangchuanshuoba.com
 
  ```
@@ -85,26 +85,15 @@ public class HttpClient {
 }
  ```
 
- ** 上面的爬取代码只需要知道怎么用就可以了，因为这个不是本应用的重点。 **
+>上面的爬取代码只需要知道怎么用就可以了，因为这个不是本应用的重点。
 
 
- 2. 从第1步下载的html文件中提取出新的有用的URL（重点）。
+<2> 从第1步下载的html文件中提取出新的有用的URL（重点）。
 
- 下面这段是第一步爬取内容中的一部分数据，我们需要从这个数据中提取出如下面所示的URL，比如：`http://longwangchuanshuoba.com/1609.html`，
+ 我们需要从这个数据中提取出如下所示的URL，比如：`http://longwangchuanshuoba.com/1609.html`，
  这些url对应小说的正文。然后把这些url保存起来，去重。（可以保存在java.util.HashSet中，它有自动去重的功能）。
 
- 可以使用`正则表达式`提取url。如下所示：
- ```
- Pattern pattern = Pattern.compile("(<a\\shref=[^\\d]*)(\\d{1,}.html)(.*</a>)");
- Matcher matcher = pattern.matcher(htmlPage);
-
- while(matcher.find()){
-     String url = matcher.group(2);
-     System.out.println(url);
- }
-
- ```
- 下面内容是第一步所爬去的内容的一部分：
+下面内容是第一步所爬去的内容的一部分：
 ```
 、、、
 
@@ -124,13 +113,25 @@ public class HttpClient {
 
 ```
 
-3. 根据上面第二步所提取的url下载它们所对应的html网页内容（和第一步类似）。
+ 可以使用`正则表达式`提取url。如下所示：
+ ```
+ Pattern pattern = Pattern.compile("(<a\\shref=[^\\d]*)(\\d{1,}.html)(.*</a>)");
+ Matcher matcher = pattern.matcher(htmlPage);
+
+ while(matcher.find()){
+     String url = matcher.group(2);
+     System.out.println(url);
+ }
+
+ ```
+
+
+<3> 根据上面第二步所提取的url下载它们所对应的html网页内容（和第一步类似）。
 从所爬取的html网页数据中提取出小说的正文，同时过滤掉没用的信息（或者先过滤再提取）。
 把所得到的小说正文`按照章节顺序`整合在一起，最后保存到本地文件系统上面。
 
 
-提示：
-- 如果要排序，可以使用
+如果要排序，可以使用
 
 ```
 List<String> result = new ArrayList<String>();
