@@ -90,7 +90,7 @@ public class HttpClient {
 
 <2> 从第1步下载的html文件中提取出新的有用的URL（重点）。
 
- 我们需要从这个数据中提取出如下所示的URL，比如：`http://longwangchuanshuoba.com/1609.html`，
+ 我们需要从刚刚爬取的html文件中提取出如下所示的URL，比如：`http://longwangchuanshuoba.com/1609.html`，
  这些url对应小说的正文。然后把这些url保存起来，去重。（可以保存在java.util.HashSet中，它有自动去重的功能）。
 
 下面内容是第一步所爬去的内容的一部分：
